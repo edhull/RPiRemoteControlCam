@@ -31,7 +31,7 @@ def cleanup():
     GPIO.cleanup()
 
 # Load the main form template on webrequest for the root page
-@app.route("/cameracontrol")
+@app.route("/camera")
 def main():
 
     # Create a template data dictionary to send any data to the template
