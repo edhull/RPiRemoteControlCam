@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+    <head>
+       <link rel="icon" type="image/png" href="camerafavicon.ico"> 
+	<title>Webcam</title>
+        <style type="text/css">
+	body
+	{
+		background-color: #000000; 
+	}
+            .style1
+            {
+                width: 50%;
+            }
+            button 
+		{
+  		padding: 5px;
+		border-radius: 70px;	
+		border-width: 2px;
+		color: #000000;
+		font-size: 20px;
+		font-weight: 800;
+		border-color: #9C9C9C;
+		background-image: -webkit-gradient(linear, left top
+		    left bottom, from(#BF5A34), to(#463630));
+		    -webkit-border-radius: 10px;
+		}
+	tr.border td {
+	  border:0pt solid white;
+	}}
+        </style>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+       <script language="javascript" type="text/javascript">
+            function Button_onclick(direction) {
+                $.ajax({ url: window.location.pathname + '/' + direction});
+            }
+        </script>
+	<script language="javascript" type="text/javascript">
+        $(document).keydown(function(e) {
+  	  switch(e.which) {
+          case 37: // left
+          $.ajax({ url: window.location.pathname + '/left'});          
+          break;
+
+          case 38: // up
+          $.ajax({ url:  window.location.pathname + '/up'});
+          break;
+
+          case 39: // right
+          $.ajax({ url:  window.location.pathname + '/right'});
+          break;
+
+          case 40: // down
+          $.ajax({ url:  window.location.pathname + '/down'}); 
+          break;
+
+          default: return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+});	
+	</script>
+    </head>
+    <body> 
+        <table align="center" class="style1">
+            <tr class="border">
+                <td colspan="3" style="text-align: center">
+		<iframe id="camimage" src="http:// ***PLACE YOUR CAMERA IP HERE*** :1111/?action=stream" width="660" height="500"></iframe>	
+		</td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: center">
+               	<button id="btnUp" onclick="Button_onclick('up')">Up</button> 
+		</td>
+            </tr>
+            <tr>
+                <td width="40%" style="text-align: center">
+			<button id="btnLeft" onclick="Button_onclick('left')">Left</button>
+                </td>
+ 		<td width="20%" style="text-align: center">
+			<button id="btnCenter" onclick="Button_onclick('center')">Center</button>
+                </td>
+                <td width="40%" style="text-align: center">
+			<button id="btnRight" onclick="Button_onclick('right')">Right</button>                    
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: center">
+			<button id="btnDown" onclick="Button_onclick('down')">Down</button>                    
+                </td>
+            </tr>
+	    <tr>
+		<td></br></td>
+	    </tr>
+	    <tr>
+		<td style="text-align: center">
+			<button id="posOne" onclick="Button_onclick('posOne')">Car Park</button>
+		</td>
+                <td style="text-align: center"> 
+			<button id="posTwo" onclick="Button_onclick('posTwo')">Horizon</button>
+                </td>
+                <td style="text-align: center"> 
+                        <button id="posThree" onclick="Button_onclick('posThree')">Sky</button>
+                </td>
+        </table>
+    </body>
+</html>
